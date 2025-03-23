@@ -31,8 +31,6 @@ Minimal, portable, and fully bootstrapped with a single installer script.
 | **Git**     | `git/.gitconfig`          | Git config with GPG signing     |
 | **Neovim**  | `nvim/.config/nvim`       | Neovim text editor config       |
 
----
-
 ## 🚀 Quick Start
 
 ```bash
