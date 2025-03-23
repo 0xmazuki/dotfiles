@@ -1,0 +1,8 @@
+zsh
+nvim
+starship
+alacritty
+yabai
+skhd
+gnupg
+git

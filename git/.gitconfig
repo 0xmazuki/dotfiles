@@ -1,0 +1,14 @@
+[user]
+	email = 0xmazuki@gmail.com
+	name = mazuki 
+	signingKey = FE29F7D95473BCF8
+
+[core]
+	editor = vim
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	program = gpg
+
