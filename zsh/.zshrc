@@ -7,3 +7,8 @@ antidote load < "$DOTFILES/zsh/.zsh_plugins.txt"
 
 export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
+
+if [ -f "$HOME/.ssh/id_ed25519" ]; then
+  eval "$(ssh-agent -s)" >/dev/null
+  ssh-add "$HOME/.ssh/id_ed25519" 2>/dev/null
+fi

@@ -1,4 +1,7 @@
 #!/bin/bash
+set -euo pipefail
+
+source "$HOME/.dotfiles/lib/env.sh"
 
 printf "\n"
 printf "\033[38;5;167m███╗   ███╗ █████╗ ███████╗██╗   ██╗██╗  ██╗██╗\033[0m\n"
@@ -11,9 +14,6 @@ printf "\n"
 printf "\033[38;5;175m           MAZUKI DOTFILES INSTALLER\033[0m\n"
 printf "\n"
 
-set -euo pipefail
-
-source "$HOME/.dotfiles/lib/env.sh"
 
 echo "📁 Bootstrapping dotfiles from $DOTFILES"
 echo "💻 System: macOS $(sw_vers -productVersion) ($(uname -m))"
@@ -25,9 +25,7 @@ bash "$SCRIPTS/configure_macos.sh"
 bash "$SCRIPTS/stow_all.sh"
 bash "$SCRIPTS/start_services.sh"
 
-# 🔐 Securing GPG config files 
 echo "🔐 Fixing permissions for ~/.gnupg..."
-
 chmod 700 ~/.gnupg
 [ -f ~/.gnupg/gpg.conf ] && chmod 600 ~/.gnupg/gpg.conf
 [ -f ~/.gnupg/gpg-agent.conf ] && chmod 600 ~/.gnupg/gpg-agent.conf

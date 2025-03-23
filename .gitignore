@@ -1,4 +1,6 @@
 **/.gnupg/**
+**/.ssh/**
 !**/.gnupg/gpg.conf
 !**/.gnupg/gpg-agent.conf
+!**/.ssh/config
 .DS_Store

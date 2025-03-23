@@ -5,4 +5,5 @@ alacritty
 yabai
 skhd
 gnupg
+ssh
 git
