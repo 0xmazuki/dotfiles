@@ -3,7 +3,7 @@ set -euo pipefail
 
 source "$HOME/.dotfiles/lib/env.sh"
 
-echo "🛠  Applying macOS system tweaks..."
+echo "🛠 Applying macOS system tweaks..."
 
 ###############################################################################
 # 💻 Keyboard & Input
@@ -57,19 +57,11 @@ defaults write com.apple.dock persistent-apps -array
 defaults write com.apple.dock static-only -bool true
 
 ###############################################################################
-# 🖥 Hostname Preferences
-###############################################################################
-
-sudo scutil --set ComputerName "Mazuki-MacBook"
-sudo scutil --set HostName "mazuki"
-sudo scutil --set LocalHostName "mazuki"
-
-###############################################################################
 # 🖼️ Wallpaper
 ###############################################################################
 
 if [[ -f "$WALLPAPER" ]]; then
-  echo "🖼️  Setting wallpaper..."
+  echo "🖼️ Setting wallpaper..."
   osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$WALLPAPER\""
   echo "✅ Wallpaper set to $WALLPAPER"
 else
@@ -77,13 +69,11 @@ else
 fi
 
 ###############################################################################
-# 👤 Set User Profile Picture
+# 👤 Profile Picture
 ###############################################################################
 
-PROFILE_PIC="$DOTFILES/assets/profile.jpg"
-
 if [[ -f "$PROFILE_IMAGE" ]]; then
-  echo "🖼️  Setting user profile picture..."
+  echo "🖼️ Setting user profile picture..."
   sudo dscl . delete /Users/$(whoami) JPEGPhoto || true
   sudo dscl . create /Users/$(whoami) Picture "$PROFILE_IMAGE"
   echo "✅ Profile picture set."
@@ -98,4 +88,3 @@ fi
 killall Dock Finder SystemUIServer || true
 
 echo "✅ macOS tweaks applied."
-

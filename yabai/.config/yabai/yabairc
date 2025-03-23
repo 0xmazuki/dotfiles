@@ -1,29 +1,36 @@
-yabai -m config layout                     bsp
-yabai -m config window_gap                 8
-yabai -m config top_padding                8
-yabai -m config bottom_padding             8
-yabai -m config left_padding               8
-yabai -m config right_padding              8
+#!/bin/bash
 
-apps=(
-    "^Finder$"
-    "^Activity Monitor$"
-    "^System Settings$"
-    "^System Preferences$"
-    "^App Store$"
-    "^Activity Monitor$"
-    "^Calculator$"
-    "^Dictionary$"
-    "Software Update"
-    "System Information"
+# ────── 🧱 Core Layout ──────
+yabai -m config layout           bsp
+yabai -m config window_gap       8
+yabai -m config top_padding      8
+yabai -m config bottom_padding   8
+yabai -m config left_padding     8
+yabai -m config right_padding    8
+
+# ────── ⛔ Apps to Float (Not Managed) ──────
+FLOATING_APPS=(
+  "^Activity Monitor$"
+  "^App Store$"
+  "^Calculator$"
+  "^Dictionary$"
+  "^Finder$"
+  "^System Information$"
+  "^System Preferences$"
+  "^System Settings$"
+  "Software Update"
 )
 
-for app in ${apps[@]}; do
-    yabai -m rule --add app="$app" manage=off
+for app in "${FLOATING_APPS[@]}"; do
+  yabai -m rule --add app="$app" manage=off
 done
 
-# focus window after active space changes
-yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
+# ────── 🧠 Auto-Focus First Window After Space/Display Change ──────
 
-# focus window after active display changes
-yabai -m signal --add event=display_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
+FOCUS_CMD='yabai -m window --focus $(yabai -m query --windows --space | jq ".[0].id")'
+
+# Focus window after space change
+yabai -m signal --add event=space_changed action="$FOCUS_CMD"
+
+# Focus window after display change
+yabai -m signal --add event=display_changed action="$FOCUS_CMD"

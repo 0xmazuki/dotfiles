@@ -14,5 +14,5 @@ if ! xcode-select -p &>/dev/null; then
 
   echo "✅ Xcode Command Line Tools installed."
 else
-  echo "✅ Xcode Command Line Tools already present."
+  echo "✅ Xcode Command Line Tools already installed."
 fi
