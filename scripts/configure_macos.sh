@@ -3,7 +3,7 @@ set -euo pipefail
 
 source "$HOME/.dotfiles/lib/env.sh"
 
-echo "🛠 Applying macOS system tweaks..."
+echo "🛠  Applying macOS system tweaks..."
 
 ###############################################################################
 # 💻 Keyboard & Input
@@ -61,7 +61,7 @@ defaults write com.apple.dock static-only -bool true
 ###############################################################################
 
 if [[ -f "$WALLPAPER" ]]; then
-  echo "🖼️ Setting wallpaper..."
+  echo "🖼️  Setting wallpaper..."
   osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$WALLPAPER\""
   echo "✅ Wallpaper set to $WALLPAPER"
 else
@@ -73,7 +73,7 @@ fi
 ###############################################################################
 
 if [[ -f "$PROFILE_IMAGE" ]]; then
-  echo "🖼️ Setting user profile picture..."
+  echo "🖼️  Setting user profile picture..."
   sudo dscl . delete /Users/$(whoami) JPEGPhoto || true
   sudo dscl . create /Users/$(whoami) Picture "$PROFILE_IMAGE"
   echo "✅ Profile picture set."

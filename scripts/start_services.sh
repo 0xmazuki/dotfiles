@@ -10,12 +10,12 @@ if command -v yabai >/dev/null; then
     echo "📦 Installing yabai service..."
     yabai --install-service
   fi
-  echo "🚀Starting yabai..."
+  echo "🚀 Starting yabai..."
   yabai --restart-service
 fi
 
 if command -v skhd >/dev/null; then
-  echo "🚀Starting skhd..."
+  echo "🚀 Starting skhd..."
   skhd --restart-service
 fi
 
