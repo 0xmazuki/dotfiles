@@ -1,6 +1,7 @@
 # ────── 🖥️ GUI Applications ──────
 cask "alacritty"
 cask "brave-browser"
+cask "chatgpt"
 
 # ────── 🔤 Fonts ──────
 cask "font-jetbrains-mono-nerd-font"
