@@ -2,6 +2,7 @@
 cask "alacritty"
 cask "brave-browser"
 cask "chatgpt"
+cask "visual-studio-code"
 
 # ────── 🔤 Fonts ──────
 cask "font-jetbrains-mono-nerd-font"
@@ -14,6 +15,8 @@ brew "jq"           # JSON processor
 brew "nvim"         # Neovim editor
 brew "pinentry"     # GPG prompt tool
 brew "stow"         # symlink manager
+brew "node"         # node runtime 
+brew "ripgrep"      # grep 
 
 # ────── 🚀 Shell Enhancements ──────
 brew "antidote"     # zsh plugin manager
